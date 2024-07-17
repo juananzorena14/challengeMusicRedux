@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import useMusicStore from '../zustand/music-zustand';
-import { Card } from 'react-bootstrap';
+import { Card, Carousel } from 'react-bootstrap';
 
 const DetalleScreen = () => {
 
@@ -22,17 +22,13 @@ const DetalleScreen = () => {
 
   return (
     <>
-
-    {detalle.map((cancion) => (
-        
-      <Card style={{ width: '18rem' }} key={cancion.id}>
-      <Card.Img variant="top" src={cancion.album.cover_medium} />
-      <Card.Body>
-        <Card.Title>{cancion.title}</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
+      <Carousel>
+        {detalle.map((cancion) => (
+          <Card style={{ width: '18rem' }} key={cancion.id}>
+            <Card.Img variant="top" src={cancion.album.cover_medium} />
+            <Card.Body>
+              <Card.Title>{cancion.title}</Card.Title>
+              <Card.Text className='text-muted'>{cancion.album.title} </Card.Text>
         <audio controls style={{width:"15rem"}}>
       <source src={cancion.preview} type="audio/mp3"/>
       </audio>
@@ -40,6 +36,7 @@ const DetalleScreen = () => {
     </Card>
 
     ))}
+    </Carousel>
     </>
   )
   

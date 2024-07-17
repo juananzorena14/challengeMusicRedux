@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import useMusicStore from '../zustand/music-zustand';
 import { Link } from 'react-router-dom';
+import { Card, Container, Row } from 'react-bootstrap';
 
 const MainScreen = () => {
 
@@ -18,21 +19,26 @@ const MainScreen = () => {
 
 
   return (
-    <div>
-    <div>Streaming de Musica</div>
-    {musica.length > 0 && (
-      <ul>
-        {musica.map((artista) => (
-          
-          <Link 
-          key={artista.id}
-          to={`detalle/${artista.id}`}
-          className='btn btn-success me-4'>{artista.name} </Link>
-        ))}
-      </ul>
-    )}
-    
-    </div>
+    <Container> 
+      <Row className='mt-3'>
+        <h2>Streaming de Musica</h2>
+      </Row>
+      <Row className='d-flex flex-row flex-wrap'>
+        {musica.length > 0 && (
+          <Row>
+            {musica.map((artista) => ( 
+              <Link 
+                key={artista.id}
+                to={`detalle/${artista.id}`}
+                className='card w-25 m-3'>
+                <Card.Img src={artista.picture_medium}/>
+                <Card.Body>{artista.name}</Card.Body> 
+              </Link>
+            ))}
+          </Row>
+        )}
+      </Row>
+    </Container>
   )
 }
 
