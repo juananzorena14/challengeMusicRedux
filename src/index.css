@@ -1,0 +1,64 @@
+body {
+	background: #111 !important;
+}
+.section-artist {
+  min-height: 100vh;
+  color: #fff;
+	text-align: center;
+}
+.container-artist {
+	display: flex;
+	gap: 1rem;
+  padding: 0 1rem;
+  height: 350px;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+}
+.card-artist {
+	padding: 1rem .5rem;
+  background-color: transparent;
+	border-radius: 0.4rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+  height: 100%;
+	width: 25rem;
+	text-align: center;
+	text-decoration: none;
+}
+.card-artist h4 {
+	color: #fff;
+}
+.card-artist:hover {
+	background-color: #444;
+	transition: all .4s;
+}
+/*detalles cancion*/
+.container-sing {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-top: 1rem;
+	padding: 0 1rem;
+}
+.row-data {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+@media screen and (min-width: 480px) {
+	.container-artist {
+		padding: 0;
+		overflow-x: hidden;
+		display: flex;
+		height: 100%;
+		display: grid;
+		grid-template-columns: repeat(3,1fr);
+		place-items: center;
+	}
+	.card-artist {
+		height: 400px;
+		width: 300px;
+	}
+}
